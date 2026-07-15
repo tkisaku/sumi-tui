@@ -14,14 +14,6 @@
         name = "fzf";
         src = pkgs.fishPlugins.fzf;
       }
-      {
-        name = "done";
-        src = pkgs.fishPlugins.done;
-      }
-      {
-        name = "forgit";
-        src = pkgs.fishPlugins.forgit;
-      }
     ];
   };
 }

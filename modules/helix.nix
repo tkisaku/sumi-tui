@@ -9,6 +9,7 @@
         true-color = true;
         clipboard-provider = "termcode";
         auto-save.after-delay.enable = true;
+        cursor-shape.insert = "bar";
       };
       theme = "tokyonight_storm";
     };
