@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./bat.nix
     ./btop.nix
     ./fzf.nix
     ./helix.nix
