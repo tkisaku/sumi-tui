@@ -6,7 +6,6 @@
       cd = "z";
       cat = "bat";
       diff = "delta --diff-so-fancy --side-by-side";
-      man = "BAT_THEME='default' batman";
       less = "bat";
       tt = "gtrash put";
 
