@@ -77,3 +77,7 @@ theme "tokyo-night"
 default_layout "sumi"
 
 default_mode "locked"
+
+options {
+    show_startup_tips true
+}
