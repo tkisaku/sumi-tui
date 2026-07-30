@@ -12,6 +12,7 @@
         cursor-shape.insert = "bar";
       };
       theme = "tokyonight_storm";
+      file-picker.hidden = false;
     };
 
   };
