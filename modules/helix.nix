@@ -9,10 +9,11 @@
         true-color = true;
         clipboard-provider = "termcode";
         auto-save.after-delay.enable = true;
+        line-number = "relative";
+        file-picker.hidden = false;
         cursor-shape.insert = "bar";
       };
       theme = "tokyonight_storm";
-      file-picker.hidden = false;
     };
 
   };
@@ -27,6 +28,10 @@
     [[language]]
     name = "c"
     auto-format = true
+    [[language]]
+    name = "cpp"
+    auto-format = true
+    file-types = ["cc", "hh", "c++", "cpp", "hpp", "ipp", "tpp", "cxx", "hxx"]
     [[language]]
     name = "typescript"
     roots = ["deno.json", "deno.jsonc"]
