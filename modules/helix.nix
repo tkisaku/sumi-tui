@@ -32,6 +32,28 @@
     name = "cpp"
     auto-format = true
     file-types = ["cc", "hh", "c++", "cpp", "hpp", "ipp", "tpp", "cxx", "hxx"]
+
+    [[language]]
+    name = "markdown"
+    formatter = { command = "deno", args = ["fmt", "--ext", "md", "-"]}
+
+    [[language]]
+    name = "typescript"
+    file-types = ["ts", "tsx"]
+    auto-format = true
+    language-servers = ["typescript-language-server"]
+
+    [[language]]
+    name = "javascript"
+    file-types = ["js", "jsx"]
+    auto-format = true
+    language-servers = ["typescript-language-server"]
+
+    [[language-server.typescript-language-server]]
+    command = "typescript-language-server"
+    args = ["--stdio"]
+
+
     [[language]]
     name = "typescript"
     roots = ["deno.json", "deno.jsonc"]
@@ -46,11 +68,6 @@
     auto-format = true
     language-servers = ["deno"]
 
-    [[language]]
-    name = "json"
-    roots = ["deno.json", "deno.jsonc"]
-    language-servers = ["deno"]
-
     [language-server.deno]
     command = "deno"
     args = ["lsp"]
@@ -58,8 +75,5 @@
     [language-server.deno.config.deno]
     enable = true
 
-    [[language]]
-    name = "markdown"
-    formatter = { command = "deno", args = ["fmt", "--ext", "md", "-"]}
   '';
 }
