@@ -49,7 +49,7 @@
     auto-format = true
     language-servers = ["typescript-language-server"]
 
-    [[language-server.typescript-language-server]]
+    [language-server.typescript-language-server]
     command = "typescript-language-server"
     args = ["--stdio"]
 
