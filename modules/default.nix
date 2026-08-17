@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./atuin.nix
     ./btop.nix
     ./fzf.nix
     ./helix.nix
