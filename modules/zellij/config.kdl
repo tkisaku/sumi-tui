@@ -80,4 +80,5 @@ default_mode "locked"
 
 options {
     show_startup_tips true
+    scrollback_editor "vim"
 }

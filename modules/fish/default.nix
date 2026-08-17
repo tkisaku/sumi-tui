@@ -29,6 +29,11 @@
     '';
   };
 
+  home.sessionVariables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
+
   programs.fzf.enableFishIntegration = true;
   programs.zoxide = {
     enable = true;
