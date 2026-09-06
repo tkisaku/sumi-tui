@@ -53,27 +53,5 @@
     command = "typescript-language-server"
     args = ["--stdio"]
 
-
-    [[language]]
-    name = "typescript"
-    roots = ["deno.json", "deno.jsonc"]
-    file-types = ["ts", "tsx"]
-    auto-format = true
-    language-servers = ["deno"]
-
-    [[language]]
-    name = "javascript"
-    roots = ["deno.json", "deno.jsonc"]
-    file-types = ["js", "jsx"]
-    auto-format = true
-    language-servers = ["deno"]
-
-    [language-server.deno]
-    command = "deno"
-    args = ["lsp"]
-
-    [language-server.deno.config.deno]
-    enable = true
-
   '';
 }
