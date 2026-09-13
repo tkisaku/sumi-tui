@@ -3,9 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }: {
-    homeManagerModules.default = import ./modules;
+  outputs = { self, nixpkgs, zjstatus, ... }: {
+    homeManagerModules.default = { pkgs, ... }: {
+      imports = [ ./modules ];
+      _module.args.zjstatus = zjstatus.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    };
   };
 }

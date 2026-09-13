@@ -1,4 +1,4 @@
-{ config, osConfig ? { }, ... }:
+{ config, osConfig ? { }, zjstatus, ... }:
 let
   editor =
     config.home.sessionVariables.EDITOR
@@ -13,5 +13,7 @@ in
   xdg.configFile."zellij/config.kdl".text =
     builtins.replaceStrings [ ''scrollback_editor "vim"'' ] [ ''scrollback_editor "${editor}"'' ]
       (builtins.readFile ./config.kdl);
-  xdg.configFile."zellij/layouts/sumi.kdl".source = ./layouts/sumi.kdl;
+  xdg.configFile."zellij/layouts/sumi.kdl".text =
+    builtins.replaceStrings [ "@zjstatus@" ] [ "${zjstatus}" ]
+      (builtins.readFile ./layouts/sumi.kdl);
 }
