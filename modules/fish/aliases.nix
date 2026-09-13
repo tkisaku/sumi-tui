@@ -7,7 +7,6 @@
       cat = "bat";
       diff = "delta --diff-so-fancy --side-by-side";
       less = "bat";
-      tt = "gtrash put";
 
       # File listing (eza)
       l = "eza --icons  -a --group-directories-first -1";

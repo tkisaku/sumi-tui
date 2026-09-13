@@ -1,6 +1,9 @@
-{ config, ... }:
+{ config, osConfig ? { }, ... }:
 let
-  editor = config.home.sessionVariables.EDITOR or "vim";
+  editor =
+    config.home.sessionVariables.EDITOR
+      or osConfig.environment.variables.EDITOR
+      or "vim";
 in
 {
   programs.zellij = {
