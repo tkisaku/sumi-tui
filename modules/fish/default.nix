@@ -1,3 +1,4 @@
+{ sumiPkgs, ... }:
 {
   imports = [
     ./aliases.nix
@@ -5,6 +6,7 @@
 
   programs.fish = {
     enable = true;
+    package = sumiPkgs.fish;
     functions = {
       fuzzy_complete = ''
         set -l token (commandline -t)
@@ -38,5 +40,6 @@
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+    package = sumiPkgs.zoxide;
   };
 }

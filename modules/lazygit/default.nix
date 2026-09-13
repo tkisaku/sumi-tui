@@ -1,7 +1,10 @@
-{ pkgs, ... }:
+{ sumiPkgs, ... }:
 {
-  programs.lazygit.enable = true;
-  home.packages = with pkgs; [
+  programs.lazygit = {
+    enable = true;
+    package = sumiPkgs.lazygit;
+  };
+  home.packages = with sumiPkgs; [
     commitizen
     gitflow
   ];

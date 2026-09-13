@@ -1,7 +1,8 @@
-{ ... }:
+{ sumiPkgs, ... }:
 {
   programs.helix = {
     enable = true;
+    package = sumiPkgs.helix;
 
     defaultEditor = true;
     settings = {

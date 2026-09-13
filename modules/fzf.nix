@@ -1,7 +1,8 @@
-{ ... }:
+{ sumiPkgs, ... }:
 {
   programs.fzf = {
     enable = true;
+    package = sumiPkgs.fzf;
 
     defaultCommand = "fd --hidden --strip-cwd-prefix --exclude .git";
     fileWidgetOptions = [
