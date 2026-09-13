@@ -1,6 +1,6 @@
-{ sumiPkgs, ... }:
+{ pkgs, ... }:
 {
-  home.packages = with sumiPkgs; [
+  home.packages = with pkgs; [
     ## Better core utils
     eza # ls replacement
     bat # cat replacement

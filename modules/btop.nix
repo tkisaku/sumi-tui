@@ -1,8 +1,7 @@
-{ sumiPkgs, ... }:
+{ ... }:
 {
   programs.btop = {
     enable = true;
-    package = sumiPkgs.btop;
 
     settings = {
       color_theme = "TTY";
