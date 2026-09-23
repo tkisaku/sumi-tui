@@ -49,6 +49,9 @@ default_layout "sumi"
 
 default_mode "locked"
 
+// Keep mouse-wheel scrolling from switching the session into scroll/normal mode.
+scroll_mode_sync false
+
 options {
     show_startup_tips true
     scrollback_editor "vim"
