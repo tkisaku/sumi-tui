@@ -16,6 +16,7 @@ keybinds clear-defaults=false {
       bind "Alt w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
       bind "Alt q" { CloseFocus; SwitchToMode "Locked"; }
       bind "Alt n" { NewPane; }
+      bind "Alt c" { CopyLastCommandOutput; }
       bind "Alt v"  { EditScrollback; SwitchToMode "Locked";}
       bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
       bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
@@ -52,7 +53,5 @@ default_mode "locked"
 // Keep mouse-wheel scrolling from switching the session into scroll/normal mode.
 scroll_mode_sync false
 
-options {
-    show_startup_tips true
-    scrollback_editor "vim"
-}
+show_startup_tips true
+scrollback_editor "vim"
