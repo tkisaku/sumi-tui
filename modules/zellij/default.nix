@@ -15,7 +15,6 @@ in
 
   programs.zellij = {
     enable = true;
-    exitShellOnExit = true;
     package = sumiPkgs.zellij;
   };
   xdg.configFile."zellij/config.kdl".text =

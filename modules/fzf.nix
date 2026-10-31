@@ -4,13 +4,15 @@
     enable = true;
 
     defaultCommand = "fd --hidden --strip-cwd-prefix --exclude .git";
-    fileWidgetOptions = [
+    fileWidget.options = [
       "--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi'"
     ];
-    changeDirWidgetCommand = "fd --type=d --hidden --strip-cwd-prefix --exclude .git";
-    changeDirWidgetOptions = [
+    changeDirWidget.command = "fd --type=d --hidden --strip-cwd-prefix --exclude .git";
+    changeDirWidget.options = [
       "--preview 'eza --tree --color=always {} | head -200'"
     ];
+    # atuin owns Ctrl-R
+    historyWidget.command = "";
 
     ## Theme
     defaultOptions = [
