@@ -1,29 +1,43 @@
 layout {
+    pane_template name="cc-deck" {
+        plugin location="file:@ccDeckWasm@" {
+            mode "sidebar"
+        }
+    }
+
+    pane_template name="status-bar" {
+        plugin location="file:@zjstatus@/bin/zjstatus.wasm" {
+            format_left   "{mode} #[fg=#7aa2f7,bold]{session}"
+            format_center "{tabs}"
+            format_right  ""
+            format_space  ""
+
+            border_enabled "false"
+
+            mode_locked "#[fg=#1a1b26,bg=#7aa2f7,bold] LOCKED "
+            mode_normal "#[fg=#1a1b26,bg=#9ece6a,bold] NORMAL "
+
+            tab_normal "#[fg=#565f89] {index}:{name} "
+            tab_active "#[fg=#c0caf5,bg=#3b4261,bold] {index}:{name} "
+        }
+    }
+
     default_tab_template {
         pane split_direction="vertical" {
-            pane size=22 borderless=true {
-                plugin location="file:@ccDeckWasm@" {
-                    mode "sidebar"
-                }
-            }
+            cc-deck size=22 borderless=true
             children
         }
-        pane size=1 borderless=true {
-            plugin location="file:@zjstatus@/bin/zjstatus.wasm" {
-                format_left   "{mode} #[fg=#7aa2f7,bold]{session}"
-                format_center "{tabs}"
-                format_right  ""
-                format_space  ""
+        status-bar size=1 borderless=true
+    }
 
-                border_enabled "false"
-
-                mode_locked "#[fg=#1a1b26,bg=#7aa2f7,bold] LOCKED "
-                mode_normal "#[fg=#1a1b26,bg=#9ece6a,bold] NORMAL "
-
-                tab_normal "#[fg=#565f89] {index}:{name} "
-                tab_active "#[fg=#c0caf5,bg=#3b4261,bold] {index}:{name} "
-            }
+    // NewTab drops a `children` nested in a split instead of filling it, which
+    // leaves the tab with no terminal and closes it, so spell the pane out.
+    new_tab_template {
+        pane split_direction="vertical" {
+            cc-deck size=22 borderless=true
+            pane
         }
+        status-bar size=1 borderless=true
     }
 
     tab name="main" focus=true {
