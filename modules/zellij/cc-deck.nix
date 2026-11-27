@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, fetchurl }:
+{ lib, stdenvNoCC, fetchurl, zellij }:
 let
   version = "0.17.0";
   sources = {
@@ -20,12 +20,15 @@ stdenvNoCC.mkDerivation {
   };
   sourceRoot = ".";
 
+  # The installer resolves its target dirs only once it finds zellij.
+  nativeBuildInputs = [ zellij ];
+
   dontConfigure = true;
   dontBuild = true;
 
   # The Zellij plugin ships embedded in the CLI. Let its installer unpack it
-  # into a scratch config dir (no zellij or claude on PATH, so it touches
-  # nothing else) and keep only the wasm.
+  # into a scratch config dir (no claude on PATH, so it adds no hooks) and
+  # keep only the wasm.
   installPhase = ''
     runHook preInstall
     install -Dm755 cc-deck $out/bin/cc-deck
