@@ -43,6 +43,8 @@ keybinds clear-defaults=false {
       bind "Alt S" { MessagePlugin { name "cc-deck:navigate-prev"; }; }
       bind "Alt a" { MessagePlugin { name "cc-deck:attend"; }; }
       bind "Alt A" { MessagePlugin { name "cc-deck:attend-prev"; }; }
+      bind "Alt d" { MessagePlugin { name "cc-deck:working"; }; }
+      bind "Alt D" { MessagePlugin { name "cc-deck:working-prev"; }; }
     }
 }
 
@@ -52,10 +54,8 @@ load_plugins {
         mode "controller"
         navigate_key "Alt s"
         attend_key "Alt a"
-        // Working-session cycling is left unbound in locked mode; the
-        // plugin always registers a key outside it, so park it on an unused
-        // one (Alt w toggles floating panes, Alt e edits the fish command).
-        working_key "Alt z"
+        // Alt w toggles floating panes and Alt e edits the fish command.
+        working_key "Alt d"
     }
 }
 
