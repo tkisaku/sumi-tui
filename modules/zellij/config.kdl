@@ -37,6 +37,25 @@ keybinds clear-defaults=false {
         }
         SwitchToMode "Locked";
       }
+      // cc-deck registers its own keys outside locked mode only, so repeat
+      // them here to make them work in the default locked mode too.
+      bind "Alt s" { MessagePlugin { name "cc-deck:navigate"; }; }
+      bind "Alt S" { MessagePlugin { name "cc-deck:navigate-prev"; }; }
+      bind "Alt a" { MessagePlugin { name "cc-deck:attend"; }; }
+      bind "Alt A" { MessagePlugin { name "cc-deck:attend-prev"; }; }
+      bind "Alt e" { MessagePlugin { name "cc-deck:working"; }; }
+      bind "Alt E" { MessagePlugin { name "cc-deck:working-prev"; }; }
+    }
+}
+
+// cc-deck controller: tracks Claude Code sessions across all tabs.
+load_plugins {
+    "file:@ccDeckWasm@" {
+        mode "controller"
+        navigate_key "Alt s"
+        attend_key "Alt a"
+        // Alt w is taken by ToggleFloatingPanes.
+        working_key "Alt e"
     }
 }
 
